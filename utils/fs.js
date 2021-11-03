@@ -1,11 +1,5 @@
 import fs from 'fs/promises';
 
-const readFile = (filePath) => {
-    return fs.readFile(filePath)
-        .then(response => response.toString())
-        .catch(() => '');
-};
-
 const readDir = (dirPath) =>  {
     return fs.readdir(dirPath)
         .then(response => response)
@@ -13,8 +7,8 @@ const readDir = (dirPath) =>  {
 }
 
 const isFile = (condidateToFile) => {
-    const regExpFile = /^\w+\.\w+$/;
+    const regExpFile = /\.\w+$/;
     return Boolean(regExpFile.exec(condidateToFile));
 }
 
-export { readFile, readDir, isFile };
+export { readDir, isFile };
